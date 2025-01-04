@@ -6,15 +6,18 @@ public:
     void mainMenuTextures();
     void displayMainMenu();
     void buttonHandler();
+    void updateBackground();
 
 private:
     Font titleFont;
     Font buttonsFont;
 
     Texture2D Logo;
-    Texture2D startButton;
-    Texture2D quitButton;
 
-    Rectangle startButtonRect = { 150, 400, 300, 60 };
-    Rectangle quitButtonRect = { 150, 550, 300, 60 };
+
+    Rectangle startButtonRect = { 200, 400, 280, 60 }; //Position and size for start button
+    Rectangle quitButtonRect = { 200, 510, 280, 60 }; //Position and size for quit button
+
+    std::vector<Vector2> stars;
+    std::vector<float> speed;
 };

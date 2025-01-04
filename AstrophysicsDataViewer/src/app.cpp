@@ -21,8 +21,11 @@ void App::update() {
 void App::display() {
     BeginDrawing();
     ClearBackground(background);
+
     mainMenu.displayMainMenu();
     mainMenu.buttonHandler();
+    mainMenu.updateBackground();
+
     EndDrawing();
 }
 
