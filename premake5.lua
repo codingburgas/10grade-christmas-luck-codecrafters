@@ -5,7 +5,7 @@ workspace "AstrophysicsDataViewer"
 
     outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
-    
+        
 project "AstrophysicsDataViewer"
     location "AstrophysicsDataViewer"
     kind "ConsoleApp"
