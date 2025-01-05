@@ -11,8 +11,9 @@ void SolarSystem::solarSystemTextures() {
     saturnTexture = LoadTexture("assets/planets/jupiter.png");
     uranusTexture = LoadTexture("assets/planets/uranus.png");
     neptuneTexture = LoadTexture("assets/planets/neptune.png");
+    backFont = LoadFont("assets/fonts/BebasNeue-Regular.ttf");
 
-    sunPosition = { 960, 550 };
+    sunPosition = { 780, 550 };
 
     mercuryAngle = 0.0f;
     venusAngle = 0.0f;
@@ -146,4 +147,18 @@ void SolarSystem::draw() {
         { sunPosition.x + neptuneOrbitRadius * cos(neptuneAngle) - neptuneSize / 2,
           sunPosition.y + neptuneOrbitRadius * sin(neptuneAngle) - neptuneSize / 2 },
         0.0f, neptuneScale, WHITE);
+
+    DrawRectangleRounded(backRect, 0.3f, 10, DARKGRAY);
+    DrawTextEx(backFont, "Back", { backRect.x + 80, backRect.y + 15 }, 36, 0.7, WHITE);
+}
+
+void SolarSystem::buttonHandler() {
+    SetMouseCursor(MOUSE_CURSOR_ARROW);
+    if (CheckCollisionPointRec(GetMousePosition(), backRect)) {
+        SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
+        if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+            std::cout << "Back button pressed" << std::endl; // Check if back button is pressed
+            isReturnPressed = true;
+        }
+    }
 }
