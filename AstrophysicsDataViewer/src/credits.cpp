@@ -1,8 +1,8 @@
 #include "credits.h"
 
 void Credits::CreditsTextures() {
-    textFont = LoadFont("fonts/LilitaOne-Regular.ttf");
-    buttonFont = LoadFont("fonts/BebasNeue-Regular.ttf");
+    textFont = LoadFont("assets/fonts/LilitaOne-Regular.ttf");
+    buttonFont = LoadFont("assets/fonts/BebasNeue-Regular.ttf");
     Logo = LoadTexture("assets/logo/no-background-logo.png");
     dev1 = LoadTexture("assets/profile_pictures/Veselin.png");
     dev2 = LoadTexture("assets/profile_pictures/Dimitur.png");

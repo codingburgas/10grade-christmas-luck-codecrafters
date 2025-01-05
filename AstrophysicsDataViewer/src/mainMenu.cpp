@@ -2,8 +2,8 @@
 
 void MainMenu::mainMenuTextures() {
 
-    titleFont = LoadFont("fonts/Sixtyfour-Regular.ttf");
-    buttonsFont = LoadFont("fonts/BebasNeue-Regular.ttf");
+    titleFont = LoadFont("assets/fonts/Sixtyfour-Regular.ttf");
+    buttonsFont = LoadFont("assets/fonts/BebasNeue-Regular.ttf");
     Logo = LoadTexture("assets/logo/no-background-logo.png");
     sun = LoadTexture("assets/planets/sun.png");
 
