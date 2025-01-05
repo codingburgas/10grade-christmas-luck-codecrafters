@@ -1,11 +1,11 @@
 #include "mainMenu.h"
-#include "precompile.h"
 
 void MainMenu::mainMenuTextures() {
 
     titleFont = LoadFont("fonts/Sixtyfour-Regular.ttf");
     buttonsFont = LoadFont("fonts/BebasNeue-Regular.ttf");
     Logo = LoadTexture("assets/logo/no-background-logo.png");
+    sun = LoadTexture("assets/planets/sun.png");
 
     const int starCount = 100;
     stars.resize(starCount);
@@ -46,16 +46,17 @@ void MainMenu::displayMainMenu() {
         DrawCircleV(star, 2.0f, WHITE);
     }
 
-    DrawTextEx(titleFont, "Welcome to AstroPhysics", {140, 150 }, 40, 0.7, DARKBLUE);
-    DrawTextEx(titleFont, "Data Viewer", { 810, 230 }, 40, 0.7, DARKBLUE);
+    DrawTextEx(titleFont, "Welcome to AstroPhysics", {200, 150 }, 40, 0.7, DARKBLUE);
+    DrawTextEx(titleFont, "Data Viewer", { 1000, 230 }, 40, 0.7, DARKBLUE);
 
-    DrawTexture(Logo, 650, 300, RAYWHITE);
+    DrawTexture(Logo, -80, 750, RAYWHITE);
+    DrawTexture(sun, 1650, -200, RAYWHITE);
 
     DrawRectangleRounded(startButtonRect, 0.3f, 10, DARKGRAY);
-    DrawTextEx(buttonsFont, "Start", { startButtonRect.x + 100, startButtonRect.y + 15 }, 36, 0.7, WHITE);
+    DrawTextEx(buttonsFont, "Start", { startButtonRect.x + 110, startButtonRect.y + 15 }, 36, 0.7, WHITE);
 
     DrawRectangleRounded(quitButtonRect, 0.3f, 10, DARKGRAY);
-    DrawTextEx(buttonsFont, "Quit", { quitButtonRect.x + 100, quitButtonRect.y + 15 }, 36, 0.7, WHITE);
+    DrawTextEx(buttonsFont, "Quit", { quitButtonRect.x + 110, quitButtonRect.y + 15 }, 36, 0.7, WHITE);
 
 }
 
@@ -64,10 +65,10 @@ void MainMenu::buttonHandler() {
         SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
         if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             std::cout << "Start button pressed" << std::endl; // Check if the button is pressed
+            isStartButtonPressed = true;
         }
     }
-    else
-    {
+    else {
         SetMouseCursor(MOUSE_CURSOR_ARROW);
     }
 

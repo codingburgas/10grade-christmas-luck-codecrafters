@@ -1,12 +1,12 @@
 #pragma once
-
-#include "precompile.h"
 #include "mainMenu.h"
+#include "solarSystem.h"
 
-class DisplayRes {
+
+class PageHandler {
 public:
-    int width = 1440;
-    int height = 900;
+    bool isInMainMenu = true;
+    bool isInSolarSystem = false;
 };
 
 class App {
@@ -15,8 +15,11 @@ public:
     void display();
     void update();
     void textures();
+    void pageHandler();
+
+    PageHandler pages;
+    MainMenu mainMenu;
+    SolarSystem solarSystem;
 
     Color background = { 0, 0, 0, 255 }; // Custom dark color for main menu's background
-    DisplayRes screen;
-    MainMenu mainMenu;
 };
