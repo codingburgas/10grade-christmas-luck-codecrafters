@@ -8,6 +8,8 @@ public:
     void buttonHandler();
     void updateBackground();
     bool isStartButtonPressed = false;
+    bool isCreditsButtonPressed = false;
+    bool isHovered = false;
 
 private:
     Font titleFont;
@@ -17,8 +19,9 @@ private:
     Texture2D sun;
 
 
-    Rectangle startButtonRect = { 780, 550, 290, 60 }; //Position and size for start button
-    Rectangle quitButtonRect = { 780, 650, 290, 60 }; //Position and size for quit button
+    Rectangle startButtonRect = { 780, 530, 290, 60 }; // Position and size for start button
+    Rectangle quitButtonRect = { 780, 750, 290, 60 }; // Position and size for quit button
+    Rectangle creditsButtonRect = { 780, 640, 290, 60 }; // Position and size for credits button
 
     std::vector<Vector2> stars;
     std::vector<float> speed;

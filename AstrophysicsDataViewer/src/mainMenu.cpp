@@ -43,7 +43,7 @@ void MainMenu::displayMainMenu() {
 
     for (const auto& star : stars) // range-based for loop
     {
-        DrawCircleV(star, 2.0f, WHITE);
+        DrawPixelV(star, WHITE);
     }
 
     DrawTextEx(titleFont, "Welcome to AstroPhysics", {200, 150 }, 40, 0.7, DARKBLUE);
@@ -56,25 +56,35 @@ void MainMenu::displayMainMenu() {
     DrawTextEx(buttonsFont, "Start", { startButtonRect.x + 110, startButtonRect.y + 15 }, 36, 0.7, WHITE);
 
     DrawRectangleRounded(quitButtonRect, 0.3f, 10, DARKGRAY);
-    DrawTextEx(buttonsFont, "Quit", { quitButtonRect.x + 110, quitButtonRect.y + 15 }, 36, 0.7, WHITE);
+    DrawTextEx(buttonsFont, "Exit", { quitButtonRect.x + 110, quitButtonRect.y + 15 }, 36, 0.7, WHITE);
+
+    DrawRectangleRounded(creditsButtonRect, 0.3f, 10, DARKGRAY);
+    DrawTextEx(buttonsFont, "Credits", { creditsButtonRect.x + 110, creditsButtonRect.y + 15 }, 36, 0.7, WHITE);
 
 }
 
 void MainMenu::buttonHandler() {
+    SetMouseCursor(MOUSE_CURSOR_ARROW);
     if (CheckCollisionPointRec(GetMousePosition(), startButtonRect)) {
         SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
+        SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
         if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-            std::cout << "Start button pressed" << std::endl; // Check if the button is pressed
+            std::cout << "Start button pressed" << std::endl; // Check if start button is pressed
             isStartButtonPressed = true;
         }
     }
-    else {
-        SetMouseCursor(MOUSE_CURSOR_ARROW);
+    if (CheckCollisionPointRec(GetMousePosition(), creditsButtonRect)) {
+        SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
+        if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+            std::cout << "Credits button pressed" << std::endl; // Check if credits button is pressed
+            isCreditsButtonPressed = true;
+        }
     }
 
     if (CheckCollisionPointRec(GetMousePosition(), quitButtonRect)) {
         SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
         if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+            EndDrawing();
             CloseWindow();
         }
     }

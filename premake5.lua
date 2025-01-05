@@ -15,11 +15,11 @@ project "AstrophysicsDataViewer"
     targetdir ("./bin/" .. outputdir .. "/%{prj.name}")
     objdir ("./bin-int/" .. outputdir .. "/%{prj.name}")
 
-    files { "./%{prj.name}/src/**.cpp", "./%{prj.name}/lib/**.h", "./%{prj.name}/assets/logo/**.png", "./%{prj.name}/assets/planets/**.png", "./%{prj.name}/fonts/**.ttf" }
+    files { "./%{prj.name}/src/**.cpp", "./%{prj.name}/include/**.h", "./%{prj.name}/assets/logo/**.png", "./%{prj.name}/assets/planets/**.png", "./%{prj.name}/fonts/**.ttf", "./%{prj.name}/assets/profile_pictures/**.jpeg" }
 
-    includedirs { "./vendor/raylib/include", "./%{prj.name}/src", "./%{prj.name}/lib" }
+    includedirs { "./vendor/raylib/include", "./%{prj.name}/src", "./%{prj.name}/include" }
 
-    libdirs { "./vendor/raylib/lib", "./%{prj.name}/lib" }
+    libdirs { "./vendor/raylib/lib", "./%{prj.name}/include" }
 
     links { "raylibdll" }
 

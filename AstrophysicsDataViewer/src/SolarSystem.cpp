@@ -43,6 +43,7 @@ void SolarSystem::solarSystemTextures() {
 }
 
 void SolarSystem::update() {
+
     mercuryAngle += mercurySpeed;
     venusAngle += venusSpeed;
     earthAngle += earthSpeed;
@@ -102,7 +103,6 @@ void SolarSystem::draw() {
     DrawCircleLines((int)sunPosition.x, (int)sunPosition.y, neptuneOrbitRadius, GRAY);
 
     Vector2 earthPosition = { sunPosition.x + earthOrbitRadius * cos(earthAngle), sunPosition.y + earthOrbitRadius * sin(earthAngle) };
-
     DrawTextureEx(earthTexture,
         { earthPosition.x - earthSize / 2, earthPosition.y - earthSize / 2 },
         0.0f, earthScale, WHITE);
@@ -146,6 +146,4 @@ void SolarSystem::draw() {
         { sunPosition.x + neptuneOrbitRadius * cos(neptuneAngle) - neptuneSize / 2,
           sunPosition.y + neptuneOrbitRadius * sin(neptuneAngle) - neptuneSize / 2 },
         0.0f, neptuneScale, WHITE);
-
-
 }

@@ -20,19 +20,35 @@ void App::update() {
 
 void App::pageHandler() {
     if (mainMenu.isStartButtonPressed) {
-        if (!pages.isInSolarSystem) { 
+        if (!pages.isInSolarSystem) {
             pages.isInSolarSystem = true;
             pages.isInMainMenu = false;
+            pages.isInCredits = false;
             solarSystem.solarSystemTextures();
+
+            mainMenu.isStartButtonPressed = false; // Reset the button statement
         }
     }
-
-    if (IsKeyPressed(KEY_ESCAPE) && pages.isInSolarSystem) {
-        if (!pages.isInMainMenu)
+    if (mainMenu.isCreditsButtonPressed)
+    {
+        if (!pages.isInCredits)
         {
-            pages.isInMainMenu = true;
             pages.isInSolarSystem = false;
+            pages.isInMainMenu = false;
+            pages.isInCredits = true;
+            credits.CreditsTextures();
+
+            mainMenu.isCreditsButtonPressed = false;
+        }
+    }
+    if (credits.IsBackButtonPressed) {
+        if (!pages.isInMainMenu) {
+            pages.isInSolarSystem = false;
+            pages.isInMainMenu = true;
+            pages.isInCredits = false;
             mainMenu.mainMenuTextures();
+
+            credits.IsBackButtonPressed = false;
         }
     }
 }
@@ -41,16 +57,22 @@ void App::display() {
     BeginDrawing();
     ClearBackground(background);
 
-    if (pages.isInMainMenu)
+    if(pages.isInMainMenu)
     {
         mainMenu.displayMainMenu();
-        mainMenu.buttonHandler();
         mainMenu.updateBackground();
+        mainMenu.buttonHandler();
     }
-    if (pages.isInSolarSystem)
+    if(pages.isInSolarSystem)
     {
         solarSystem.draw();
         solarSystem.update();
+    }
+    if (pages.isInCredits)
+    {
+        credits.displayCreditsMenu();
+        credits.updateBackground();
+        credits.buttonHandler();
     }
 
     EndDrawing();
@@ -59,4 +81,5 @@ void App::display() {
 void App::textures() {
     mainMenu.mainMenuTextures();
     solarSystem.solarSystemTextures();
+    credits.CreditsTextures();
 }
