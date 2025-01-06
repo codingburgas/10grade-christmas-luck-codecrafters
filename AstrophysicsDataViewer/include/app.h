@@ -1,7 +1,7 @@
 #pragma once
 #include "mainMenu.h"
 #include "solarSystem.h"
-#include "credits.h"
+#include "creditsPage.h"
 
 
 class PageHandler {
