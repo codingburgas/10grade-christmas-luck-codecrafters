@@ -18,7 +18,7 @@ private:
     Texture2D dev2;
     Texture2D dev3;
 
-    Rectangle backButtonRect = { 1700, 1000, 200, 60 };
+    Rectangle backButtonRect = { 1700, 950, 200, 60 };
 
     std::vector<Vector2> stars;
     std::vector<float> speed;

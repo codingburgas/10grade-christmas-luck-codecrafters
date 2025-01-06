@@ -41,7 +41,7 @@ void App::pageHandler() {
             mainMenu.isCreditsButtonPressed = false;
         }
     }
-    if (credits.IsBackButtonPressed) {
+    if (credits.IsBackButtonPressed) { // If the back button in credits is clicked then the program returns to the main menu
         if (!pages.isInMainMenu) {
             pages.isInSolarSystem = false;
             pages.isInMainMenu = true;
@@ -49,6 +49,16 @@ void App::pageHandler() {
             mainMenu.mainMenuTextures();
 
             credits.IsBackButtonPressed = false;
+        }
+    }
+    if (solarSystem.isReturnPressed) { // If the back button in  Solar System is clicked then the program returns to the main menu
+        if (!pages.isInMainMenu) {
+            pages.isInSolarSystem = false;
+            pages.isInMainMenu = true;
+            pages.isInCredits = false;
+            mainMenu.mainMenuTextures();
+
+            solarSystem.isReturnPressed = false;
         }
     }
 }
@@ -67,6 +77,7 @@ void App::display() {
     {
         solarSystem.draw();
         solarSystem.update();
+        solarSystem.buttonHandler();
     }
     if (pages.isInCredits)
     {

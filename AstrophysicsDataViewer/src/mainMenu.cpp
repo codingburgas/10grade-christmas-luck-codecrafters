@@ -67,7 +67,6 @@ void MainMenu::buttonHandler() {
     SetMouseCursor(MOUSE_CURSOR_ARROW);
     if (CheckCollisionPointRec(GetMousePosition(), startButtonRect)) {
         SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
-        SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
         if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             std::cout << "Start button pressed" << std::endl; // Check if start button is pressed
             isStartButtonPressed = true;

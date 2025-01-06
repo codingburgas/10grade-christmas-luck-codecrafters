@@ -1,13 +1,17 @@
 #pragma once
-#include "precompile.h"
+#include "credits.h"
 
 class SolarSystem {
 public:
     void solarSystemTextures();
     void update();
     void draw();
+    void buttonHandler();
+    bool isReturnPressed = false;
 
 private:
+    Font backFont;
+
     Texture2D sunTexture;
     Texture2D mercuryTexture;
     Texture2D venusTexture;
@@ -21,6 +25,8 @@ private:
 
     Vector2 sunPosition;
     Vector2 earthPosition;
+
+    Rectangle backRect = { 1700, 950, 200, 60 };
 
     float mercuryAngle, venusAngle, earthAngle, marsAngle;
     float jupiterAngle, saturnAngle, uranusAngle, neptuneAngle;
