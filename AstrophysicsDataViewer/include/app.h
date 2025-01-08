@@ -1,14 +1,16 @@
 #pragma once
+#include "precompile.h"
 #include "mainMenu.h"
 #include "solarSystem.h"
 #include "creditsPage.h"
-
+#include "planets.h/earth.h"
 
 class PageHandler {
 public:
     bool isInMainMenu = true;
     bool isInSolarSystem = false;
     bool isInCredits = false;
+    bool isInEarthView = false;
 };
 
 class App {
@@ -24,5 +26,5 @@ public:
     Credits credits;
     SolarSystem solarSystem;
 
-    Color background = { 0, 0, 0, 255 }; // Custom dark color for main menu's background
+    Color background = { 0, 0, 0, 255 };
 };

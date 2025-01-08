@@ -1,6 +1,7 @@
 #include "solarSystem.h"
 
 void SolarSystem::solarSystemTextures() {
+
     sunTexture = LoadTexture("assets/planets/sun.png");
     mercuryTexture = LoadTexture("assets/planets/mercury.png");
     venusTexture = LoadTexture("assets/planets/venus.png");
@@ -70,6 +71,8 @@ void SolarSystem::draw() {
     SetMouseCursor(MOUSE_CURSOR_ARROW);
     ClearBackground(BLACK);
 
+
+
     float sunSize = 100.0f;
     float mercurySize = 14.0f;
     float venusSize = 20.0f;
@@ -91,6 +94,7 @@ void SolarSystem::draw() {
     float saturnScale = saturnSize / saturnTexture.width;
     float uranusScale = uranusSize / uranusTexture.width;
     float neptuneScale = neptuneSize / neptuneTexture.width;
+
 
     DrawTextureEx(sunTexture, { sunPosition.x - sunSize / 2, sunPosition.y - sunSize / 2 }, 0.0f, sunScale, WHITE);
 

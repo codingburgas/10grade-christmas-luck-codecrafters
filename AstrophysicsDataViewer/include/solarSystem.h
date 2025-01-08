@@ -1,5 +1,6 @@
 #pragma once
 #include "precompile.h"
+#include "planets.h/earth.h"
 
 class SolarSystem {
 public:

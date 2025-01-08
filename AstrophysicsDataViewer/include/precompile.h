@@ -1,7 +1,9 @@
 #pragma once
 #include <iostream>
-#include <string>
 #include <vector>
 #include <cmath>
 #include <cstdlib>
 #include "raylib.h"
+#include "raymath.h"
+#include "rcamera.h"
+#include <rlgl.h>

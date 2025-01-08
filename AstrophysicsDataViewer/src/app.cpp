@@ -1,5 +1,6 @@
 #include "app.h"
 
+
 App::App() {
     InitWindow(1920, 1080, "AstroPhysics Data Viewer");
     SetTargetFPS(60);
