@@ -25,7 +25,7 @@ The idea is AstrophysicsDataViewer that allows the user to view and to understan
 
 ## 📄 Documentation <a name="docs"></a>
 
-<img src="https://img.icons8.com/fluency/48/000000/microsoft-word-2019.png" alt="MS Word logo" width=20px />[Documentation]()
+<img src="https://img.icons8.com/fluency/48/000000/microsoft-word-2019.png" alt="MS Word logo" width=20px />[Documentation](https://github.com/codingburgas/10grade-christmas-luck-codecrafters/raw/refs/heads/main/docs/CodeCrafters%20documentation.odt)
 
 <img src="https://img.icons8.com/fluency/48/000000/microsoft-powerpoint-2019.png" alt="MS PowerPoint logo" width=20px >[Presentation](https://github.com/codingburgas/10grade-christmas-luck-codecrafters/raw/refs/heads/main/docs/CodeCrafters.pptx)
 
