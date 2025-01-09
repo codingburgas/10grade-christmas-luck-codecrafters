@@ -11,6 +11,7 @@ public:
     bool isInSolarSystem = false;
     bool isInCredits = false;
     bool isInEarthView = false;
+    bool isEarthClicked = false;
 };
 
 class App {
@@ -25,6 +26,7 @@ public:
     MainMenu mainMenu;
     Credits credits;
     SolarSystem solarSystem;
+    Earth earth;
 
     Color background = { 0, 0, 0, 255 };
 };

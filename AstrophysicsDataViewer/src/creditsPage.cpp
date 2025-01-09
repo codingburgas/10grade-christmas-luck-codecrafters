@@ -74,14 +74,12 @@ void Credits::displayCreditsMenu() {
 }
 
 void Credits::buttonHandler() {
+    SetMouseCursor(MOUSE_CURSOR_ARROW);
     if (CheckCollisionPointRec(GetMousePosition(), backButtonRect)) {
         SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
         if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             std::cout << "Back button pressed" << std::endl;
             IsBackButtonPressed = true;
         }
-    }
-    else {
-        SetMouseCursor(MOUSE_CURSOR_ARROW);
     }
 }

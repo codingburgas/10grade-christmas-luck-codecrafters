@@ -17,7 +17,7 @@ private:
 
     Texture2D Logo;
     Texture2D sun;
-
+    Texture2D starship;
 
     Rectangle startButtonRect = { 780, 530, 290, 60 }; // Position and size for start button
     Rectangle quitButtonRect = { 780, 750, 290, 60 }; // Position and size for quit button

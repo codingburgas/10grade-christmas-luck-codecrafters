@@ -65,18 +65,20 @@ void SolarSystem::update() {
     uranusAngle = fmod(uranusAngle, 2 * PI);
     neptuneAngle = fmod(neptuneAngle, 2 * PI);
     moonAngle = fmod(moonAngle, 2 * PI);
+
 }
 
 void SolarSystem::draw() {
     SetMouseCursor(MOUSE_CURSOR_ARROW);
     ClearBackground(BLACK);
 
+    earthRec = { earthPosition.x - earthSize / 2, earthPosition.y - earthSize / 2, earthSize, earthSize };
 
 
     float sunSize = 100.0f;
     float mercurySize = 14.0f;
     float venusSize = 20.0f;
-    float earthSize = 24.0f;
+    earthSize = 24.0f;
     float moonSize = 10.0f;
     float marsSize = 18.0f;
     float jupiterSize = 50.0f;
@@ -107,12 +109,14 @@ void SolarSystem::draw() {
     DrawCircleLines((int)sunPosition.x, (int)sunPosition.y, uranusOrbitRadius, GRAY);
     DrawCircleLines((int)sunPosition.x, (int)sunPosition.y, neptuneOrbitRadius, GRAY);
 
-    Vector2 earthPosition = { sunPosition.x + earthOrbitRadius * cos(earthAngle), sunPosition.y + earthOrbitRadius * sin(earthAngle) };
+    DrawRectangleRounded(earthRec, 0.5f, 10, BLACK);
+
+    earthPosition = { sunPosition.x + earthOrbitRadius * cos(earthAngle), sunPosition.y + earthOrbitRadius * sin(earthAngle) };
     DrawTextureEx(earthTexture,
         { earthPosition.x - earthSize / 2, earthPosition.y - earthSize / 2 },
         0.0f, earthScale, WHITE);
 
-    Vector2 moonPosition = { earthPosition.x + moonOrbitRadius * cos(moonAngle) - moonSize / 2,
+    moonPosition = { earthPosition.x + moonOrbitRadius * cos(moonAngle) - moonSize / 2,
                              earthPosition.y + moonOrbitRadius * sin(moonAngle) - moonSize / 2 };
 
     DrawTextureEx(moonTexture, moonPosition, 0.0f, moonScale, WHITE);
@@ -163,6 +167,13 @@ void SolarSystem::buttonHandler() {
         if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             std::cout << "Back button pressed" << std::endl; // Check if back button is pressed
             isReturnPressed = true;
+        }
+    }
+    if (CheckCollisionPointRec(GetMousePosition(), earthRec)) {
+        SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
+        if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+            std::cout << "Earth pressed" << std::endl; // Check if back button is pressed
+            isEarthClicked = true;
         }
     }
 }

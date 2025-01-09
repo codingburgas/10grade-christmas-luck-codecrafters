@@ -9,6 +9,7 @@ public:
     void draw();
     void buttonHandler();
     bool isReturnPressed = false;
+    bool isEarthClicked = false;
 
 private:
     Font backFont;
@@ -26,8 +27,13 @@ private:
 
     Vector2 sunPosition;
     Vector2 earthPosition;
+    Vector2 moonPosition;
+    Earth earth;
+
+    float earthSize;
 
     Rectangle backRect = { 1700, 950, 200, 60 };
+    Rectangle earthRec;
 
     float mercuryAngle, venusAngle, earthAngle, marsAngle;
     float jupiterAngle, saturnAngle, uranusAngle, neptuneAngle;

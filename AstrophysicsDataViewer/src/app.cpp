@@ -37,6 +37,7 @@ void App::pageHandler() {
             pages.isInSolarSystem = false;
             pages.isInMainMenu = false;
             pages.isInCredits = true;
+            pages.isInEarthView = false;
             credits.CreditsTextures();
 
             mainMenu.isCreditsButtonPressed = false;
@@ -47,6 +48,7 @@ void App::pageHandler() {
             pages.isInSolarSystem = false;
             pages.isInMainMenu = true;
             pages.isInCredits = false;
+            pages.isInEarthView = false;
             mainMenu.mainMenuTextures();
 
             credits.IsBackButtonPressed = false;
@@ -57,10 +59,31 @@ void App::pageHandler() {
             pages.isInSolarSystem = false;
             pages.isInMainMenu = true;
             pages.isInCredits = false;
+            pages.isInEarthView = false;
             mainMenu.mainMenuTextures();
 
             solarSystem.isReturnPressed = false;
         }
+    }
+    if (solarSystem.isEarthClicked) {
+        if (!pages.isInEarthView) {
+            pages.isInSolarSystem = false;
+            pages.isInMainMenu = false;
+            pages.isInCredits = false;
+            pages.isInEarthView = true;
+            earth.earthTextures();
+
+            solarSystem.isEarthClicked = false;
+        }
+    }
+    if (earth.isBackClicked) {
+        pages.isInSolarSystem = false;
+        pages.isInMainMenu = true;
+        pages.isInCredits = false;
+        pages.isInEarthView = false;
+        mainMenu.mainMenuTextures();
+
+        earth.isBackClicked = false;
     }
 }
 
@@ -86,6 +109,11 @@ void App::display() {
         credits.updateBackground();
         credits.buttonHandler();
     }
+    if (pages.isInEarthView)
+    {
+        earth.displayEarth();
+        earth.buttonHandler();
+    }
 
     EndDrawing();
 }
@@ -94,4 +122,5 @@ void App::textures() {
     mainMenu.mainMenuTextures();
     solarSystem.solarSystemTextures();
     credits.CreditsTextures();
+    earth.earthTextures();
 }

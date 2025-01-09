@@ -17,8 +17,7 @@ project "AstrophysicsDataViewer"
 
     files { "./%{prj.name}/src/**.cpp", "./%{prj.name}/include/**.h", "./%{prj.name}/include/planets.h/**.h", 
     "./%{prj.name}/src/planets.src/**.cpp", "./%{prj.name}/assets/logo/**.png", "./%{prj.name}/assets/planets/**.png",
-     "./%{prj.name}/assets/fonts/**.ttf", "./%{prj.name}/assets/profile_pictures/**.png", "./%{prj.name}/assets/3D_planets/**.obj",
-      "./%{prj.name}/assets/planet_textures/**.png" }
+     "./%{prj.name}/assets/fonts/**.ttf", "./%{prj.name}/assets/profile_pictures/**.png" }
 
     includedirs { "./vendor/raylib/include", "./%{prj.name}/src", "./%{prj.name}/include" }
 
